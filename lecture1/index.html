@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <title>testpage</title>
+</head>
+
+<body>
+    <h1>最初のページ</h1>             <!--タイトル-->
+    <li>あいうえお</li>               <!--list1-->
+    <li>かきくけこ</li>
+    <form name="form1" onsubmit="checkText()">
+        <input name="input1" type="text"><input type="submit" value="登録">
+    </form>
+    <script type="text/javascript">
+        function checkText(){
+            alert(document.form1.input1.value);
+        }
+    </script>
+</body>
+
+</html>
