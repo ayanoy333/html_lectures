@@ -1,19 +1,87 @@
-<html>
-    <script type="javascript">
-        Math.floor(50/2.89)
-        console.log(50/2.89); 
-   
-public class Lesson010{
-    public static void main(String args[]){
-        //2つの変数「x」と「y」を宣言
-        int x = 7;
-        int y = 3;
-        System.out.println("xとyの足し算は" + (x + y) + "です。");
-        System.out.println("xとyの引き算は" + (x - y) + "です。");
-        System.out.println("xとyの掛け算は" + (x * y) + "です。");
-        System.out.println("xをyで割った時の商は" + (x / y) + "です。");
-        System.out.println("xをyで割った時の余りは" + (x % y) + "です。");
+<HTML>
+    <HEAD>
+    <SCRIPT LANGUAGE="JavaScript">
+    
+    function height() {
+      document.frm.result.value = 
+        eval(document.frm.num1.value) * eval(document.frm.num1.value);
     }
-}
-</script>
-</html>
+  </SCRIPT>
+    </HEAD>
+   
+    <BODY>
+      <h1>身長の2乗を計算します</h1>                           
+      <li>身長をmで入力してください</li>
+      <form name="form1" onsubmit="checkText()">
+          
+      </form>
+  <CENTER>
+  <form name=frm>
+  <table border=2 cellpadding=2>
+  <tr>
+  <td align=right>
+  <font  size=2>身長(m)
+  </td><td>
+  <input type=text name="num1" value=2 size=20>
+  </td></tr>
+  <tr>
+  <td align=right>
+  <font size=2>身長の2乗</font>
+  </td><td>
+  <input type=text name="result" size=20>
+  </td></tr>
+  <tr>
+  <td align=center colspan=2>
+  <input type=button value="計算する" onclick=height()>
+  </td></tr></table>
+  </form>
+  </CENTER>
+  </BODY>
+  <HEAD>
+    <SCRIPT LANGUAGE="JavaScript">
+
+  
+  function dsp_calc() {
+    document.frm.result.value = 
+      eval(document.frm.num3.value) / eval(document.frm.num2.value);
+  }
+  
+  </SCRIPT>
+  </HEAD>
+    <BODY>
+        <h1>BMIを計算します</h1>             
+        <li>18.5~25が標準です</li>               
+        <li>身長のべき乗と体重をkgで入力してください</li>
+        <form name="form1" onsubmit="checkText()">
+            
+        </form>
+    <CENTER>
+    <form name=frm>
+    <table border=2 cellpadding=2>
+    <tr>
+    <td align=right>
+    <font  size=2>身長(m)
+    </td><td>
+    <input type=text name="num1" value=2 size=20>
+    </td></tr>
+    <tr>
+    <td align=right>
+    <font  size=2>体重(kg)
+    </td><td>
+    <input type=text name="num2" value=5 size=20>
+    </td></tr>
+    <tr>
+    <td align=right>
+    <font size=2>BMI</font>
+    </td><td>
+    <input type=text name="result" size=20>
+    </td></tr>
+    <tr>
+    <td align=center colspan=2>
+    <input type=button value="計算する" onclick=dsp_calc()>
+    </td></tr></table>
+    </form>
+    </CENTER>
+    </BODY>
+    </HTML>
+    <!--体重60kg,身長170cm->2.89 体重 ÷ 身長＾2-->
