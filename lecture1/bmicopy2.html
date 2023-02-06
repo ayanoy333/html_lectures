@@ -1,27 +1,24 @@
 <HTML>
     <HEAD>
+        <meta charset="utf-8">
+        <title>bmicopy2.html</title>
     <SCRIPT LANGUAGE="JavaScript">
     
     function dsp_calc() {
-      document.frm.result.value = 
-        eval(document.frm.num1.value) / eval(document.frm.num2.value);
+        var weight = document.frm.num1.value;
+        var height = document.frm.num2.value / 100;
+        var result = weight / (height * height);
+            result = result.toFixed(2);                 <!--第二位までで四捨五入-->
+      document.frm.result.value = result;
     }
     
     </SCRIPT>
     </HEAD>
-    <head>
-        <title>bmicopy2.html</title>
-    </head>
     
     <body>
         <h1>BMIを計算します</h1>             
         <li>18.5~25が標準です</li>
-       
-        <script type="text/javascript">
-            function checkText(){
-                alert(document.form1.input1.value);
-            }
-        </script>
+           
     </body>
     <BODY>
     <CENTER>
@@ -35,7 +32,7 @@
     </td></tr>
     <tr>
     <td align=right>
-    <font color=blue size=2>身長(m)の2乗
+    <font color=blue size=2>身長(cm)
     </td><td>
     <input type=text name="num2" value=5 size=10>
     </td></tr>

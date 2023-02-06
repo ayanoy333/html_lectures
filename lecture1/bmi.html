@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <title>bmi</title>
 </head>
 
@@ -8,8 +9,8 @@
     <h1>身長170cmの人のBMIを計算します</h1>             
     <li>18.5~25が標準です</li>               
     <li>体重をkgで入力してください</li>
-    <form name="form1" onsubmit="checkText()">
-        <input name="input1" type="text"><input type="submit" value="計算">
+    <form name="form1">
+        <input name="input1" type="text"><input type="button" value="計算" onclick="checkText()">
     </form>
     <script type="text/javascript">
         function checkText(){

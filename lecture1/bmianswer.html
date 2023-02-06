@@ -1,0 +1,28 @@
+<html>
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>BMIの計算</title>
+</head>
+
+<body>
+    <form name="form1">
+        <h3>BMIの計算をします</h3>
+        身長<input type="text" name="height">cm<br>
+        体重<input type="text" name="weight">kg
+        <input type="button" value="計算" onclick="calc()">
+        <input type="text" name="result" disabled=true>
+    </form>
+    <script>
+        function calc() {
+            var weight = document.form1.weight.value;
+            var height = document.form1.height.value / 100;
+            var result = weight / (height * height);
+            result = result.toFixed(2);
+            document.form1.result.value = result;
+        }
+    </script>
+</body>
+
+</html>
