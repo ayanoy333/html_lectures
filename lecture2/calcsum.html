@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+<script>
+    function calc() {
+        var from =eval(document.getElementById("from").value);      <!--eval 数値として評価して-->
+        var to =eval(document.getElementById("to").value);
+        var result = 0;
+        for (var i = from; i <= to; i++) {
+            result = result + i;
+        }
+        document.getElementById("result").value = result;
+    }
+</script>
+
+<body>
+    <input type="text" id ="from" value ="1">から<input type="text" id ="to" value="100"><br> 
+    <input type="button" value="計算" onclick="calc()">
+    <textarea id="result"></textarea>
+</body>
+
+</html>
