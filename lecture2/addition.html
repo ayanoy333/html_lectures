@@ -1,0 +1,21 @@
+<html>
+<meta charset="utf-8">
+<script type="text/javascript">
+    function calc() {
+        var result = 0;
+
+        for (var i = 1; i <= 10; i++) {
+            result = result + i;
+        }
+        document.getElementById("result").value = result;
+    }
+</script>
+
+<body>
+    <input type="button" value="計算" onclick="calc()">
+    <textarea id="result">
+    </textarea>
+
+</body>
+
+</html>
