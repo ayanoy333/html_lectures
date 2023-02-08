@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>color</title>
+    </head>
+
+    <body>
+        <style type="text/css">
+            div{background-color: red;} 
+            div.t1{background-color: aqua;}             /*スタイルのコメント*/
+            div.t2{background-color: green;}            /*優先順位、強さ*/
+         </style>
+         <input type="button" value="変更1" onclick="color()" name="t1">
+         <input type="button" value="変更2" onclick="colors()">
+         <div id="t1" name ="t1">●</div>
+         <div name="t1" class ="t1">●</div>
+         <div name="t1" class="t2">●</div>
+         <div name="t1">●</div>
+         <div name="t1">●</div>
+         <div name="t1">●</div>
+         <div name="t1">●</div>
+        <script>
+            function color(){
+                var v = document.getElementById("t1");
+                if(v.style.backgroundColor == 'red'){       //JavaScriptでは-はマイナス扱いなので抜く
+                    v.style.backgroundColor = 'yellow'
+                }else{
+                    v.style.backgroundColor = 'red'
+                }   
+            }
+            function colors(){
+                var v = document.getElementsByName("t1");
+                for(var i = 0; i<v.length; i++){
+                    v[i].style.backgroundColor = 'yellow';
+                }
+            }
+        </script>
+    </body>
+</html>

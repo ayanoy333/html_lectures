@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>layout</title>
+    <style>
+        div.abs {
+            position: absolute;
+           /* left: 100px;               
+            top: 100px;*/
+            right: 0;
+            bottom: 0;
+            background-color: aqua;
+            height: 200px;
+            width: 200px;
+        }
+
+        #aqua span{                 /*親要素にid ="aqua"がある場合、その子要素
+                                     であるspanを設定する # IDセレクター*/
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    あいうえお<br>
+    <div class="abs" id="aqua"><span class="maru">⚫⚫⚫</span></div>
+    あいうえお<br>
+</body>
+
+</html>
