@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>movement</title>
+    <style>
+        div.container {
+            position: absolute;
+            top: 100px;
+            left: 0px;
+            width: 100px;
+            background-color: rgb(60, 60, 192);
+            text-align: center;
+        }
+    </style>
+    <style>
+        div.container2 {
+            position: absolute;
+            top: 300px;
+            left: 0px;
+            width: 100px;
+            background-color: magenta;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="text" class="container">⚫⚫⚫</div>
+    <div id="text2" class="container2">⚫⚫⚫</div>
+    <input type="button" value="青" onclick="v()">
+    <input type="button" value="ピンク" onclick="v2()">
+    <input type="button" value="全部" onclick="v(),v2()">
+
+    <script>
+        document.getElementById("text").xpos = 0;
+        var dirX = 1;
+        function v() {
+            var element = document.getElementById("text");
+            var left = element.xpos;
+            var right = left + 100;
+            if (dirX == -1) {
+                if (left <= 0) {
+                    dirX = 1;
+                } else {
+                    element.xpos -= 10;
+                }
+            } else {
+                if (right >= 800) {
+                    dirX = -1;
+                } else {
+                    element.xpos += 10;
+                }
+            }
+            element.style.left = element.xpos + 'px';
+            setTimeout(v, 800);
+        }
+        document.getElementById("text2").ypos = 0;
+        var dirY = 1;
+        function v2() {
+            var element = document.getElementById("text2");
+            var left = element.ypos;
+            var right = left + 100;
+            if (dirY == -1) {
+                if (left <= 0) {
+                    dirY = 1;
+                } else {
+                    element.ypos -= 10;
+                }
+            } else {
+                if (right >= 800) {
+                    dirY = -1;
+                } else {
+                    element.ypos += 10;
+                }
+            }
+            element.style.left = element.ypos + 'px';
+            setTimeout(v2, 800);
+        }
+
+    </script>
+</body>
+
+</html>

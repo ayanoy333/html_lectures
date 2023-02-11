@@ -5,33 +5,57 @@
     <title>movement</title>
     <style>
         div.container{
-            position: absolute;         /*絶対座標　初期値*/
+            position: absolute;         
             top: 100px;
-            left: 100px;        
-            right: 100px;
+            left: 0px;        
+            width: 100px;
+            background-color: blue;
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
     <div id="text" class="container">⚫⚫⚫</div>
-  <!-- <input type="button" value="左" onclick="moveLeft()">
-    <input type="button" value="右" onclick="moveRight()">-->
+    <input type="button" value="開始" onclick="v()">
 
     <script>
-        document.getElementById("text").xpos=100;       //1番最初に1回だけ実行される　関数呼ぶときはこない
-        setTimeout(moveRight,1000);                     //1000mm sec = 1秒経ったらmoveRightを呼ぶ
-        function moveLeft(){                            //ボタンを押したら呼ばれる
-            var mv = document.getElementById("text");
-            mv.xpos -= 10;
-           mv.style.left = mv.xpos + 'px';
-        }
-        function moveRight(){                            //ボタンを押したら呼ばれる
+        document.getElementById("text").xpos= 0;        //elemntに対するプロパティを定義、初期化
+        var dirX = 1;                                   //グローバル変数　あんまり使わない
+        function v() {
+            var element = document.getElementById("text");
+            var left = element.xpos;
+            var right = left + 100; 
+            if(dirX == -1)                               //フラグ(-1 : 左, 1 : 右) 本来はbit(0-15)で扱う
+            {
+                if (left <= 0){
+                    dirX = 1;
+                }else{
+                    element.xpos -= 10;
+                }
+            }else{
+                if(right >= 800){
+                    dirX = -1;
+                }else{
+                    element.xpos += 10;
+                }
+            }
+            element.style.left = element.xpos + 'px';
+            setTimeout(v,50);
+        }                   
+        function moveRight(){   
             var mv = document.getElementById("text");
             mv.xpos += 10;
-           mv.style.left = mv.xpos + 'px';
+            mv.style.left = mv.xpos + 'px';
            setTimeout(moveRight,1000);
         }
+        function moveLeft(){                            
+            var mv = document.getElementById("text");
+            mv.xpos -= 10;
+            mv.style.left = mv.xpos + 'px';
+           setTimeout(moveRight,-1*(1000));             //(秒数)
+        }
+
         
     </script>
 </body>
