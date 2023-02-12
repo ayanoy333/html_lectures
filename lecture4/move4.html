@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>movement</title>
+    <style>
+        div.container {
+            position: absolute;
+            width: fit-content;
+            background-color: rgb(86, 179, 241);
+            text-align: center;
+        }
+    </style>
+    <style>
+        div.bg {
+            width: 800px;
+            height: 800px;
+            background-color: rgb(242, 59, 196);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent" class="bg"></div>
+    <input type="button" value="作成" onclick="create()">
+
+    <script>
+    
+        function create(){
+            var x = Math.floor(Math.random()*800);
+            var y = Math.floor(Math.random()*800);
+            var dx = 5 + Math.floor(Math.random()*30);      //Math.random 0-1の乱数を生成　Math.floor 小数点以下切り捨て
+            var m = new mmm(x,y,'□',dx);
+        }
+
+        function mmm(x,y,val,dx) {
+            var element = document.createElement('div');
+            element.className = 'container';
+            element.innerHTML = val;
+            element.style.left = x + 'px';
+            element.style.top = y + 'px';
+            element.px = x;
+            element.xDir = 1;
+            document.getElementById('parent').appendChild(element);
+            setInterval(() => {                                                 //ラムダ式
+                if ((element.xDir == -1 && element.px <= 0)||(element.xDir == 1 && element.px >= 800)) {              //移動方向を反転          
+                    element.xDir *= -1;  
+                } 
+                element.px += element.xDir *dx;
+                element.style.left = element.px + 'px';
+            }, 10);
+            
+        }
+        
+
+
+    </script>
+</body>
+
+</html>

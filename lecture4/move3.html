@@ -10,7 +10,7 @@
             top: 100px;
             left: 0px;
             width: 100px;
-            background-color: rgb(60, 60, 192);
+            background-color: rgb(86, 179, 241);
             text-align: center;
         }
     </style>
@@ -20,7 +20,7 @@
             top: 300px;
             left: 0px;
             width: 100px;
-            background-color: magenta;
+            background-color: rgb(242, 59, 196);
             text-align: center;
         }
     </style>
@@ -29,7 +29,16 @@
 <body>
     <div id="text" class="container">⚫⚫⚫</div>
     <div id="text2" class="container2">⚫⚫⚫</div>
-    <input type="button" value="青" onclick="v()">
+    <input type="button" value="青" onclick="setInterval(() => {
+        var element = document.getElementById('text');
+            var left = element.xpos;
+            var right = left + 100;
+            if ((dirX == -1 && left <= 0)||(dirX == 1 && right >= 800)) {                        
+                dirX *= -1;  
+            } 
+            element.xpos += dirX *10;
+            element.style.left = element.xpos + 'px';
+    }, 10);">
     <input type="button" value="ピンク" onclick="v2()">
     <input type="button" value="全部" onclick="v(),v2()">
 
@@ -40,21 +49,12 @@
             var element = document.getElementById("text");
             var left = element.xpos;
             var right = left + 100;
-            if (dirX == -1) {
-                if (left <= 0) {
-                    dirX = 1;
-                } else {
-                    element.xpos -= 10;
-                }
-            } else {
-                if (right >= 800) {
-                    dirX = -1;
-                } else {
-                    element.xpos += 10;
-                }
-            }
+            if ((dirX == -1 && left <= 0)||(dirX == 1 && right >= 800)) {              //移動方向を反転          
+                dirX *= -1;  
+            } 
+            element.xpos += dirX *10;
             element.style.left = element.xpos + 'px';
-            setTimeout(v, 800);
+            setTimeout(v, 10);
         }
         document.getElementById("text2").ypos = 0;
         var dirY = 1;
@@ -76,7 +76,7 @@
                 }
             }
             element.style.left = element.ypos + 'px';
-            setTimeout(v2, 800);
+            setTimeout(v2, 10);
         }
 
     </script>
