@@ -3,12 +3,20 @@
 
 <head>
     <meta charset="utf-8">
-    <title>hanekaeru</title>
+    <title>m5</title>
     <style>
         div.container {
             position: absolute;
             width: fit-content;
-            background-color: rgb(212, 239, 30);
+            background-color: rgb(42, 197, 44);
+            text-align: center;
+        }
+    </style>
+    <style>
+        div.container2 {
+            position: absolute;
+            width: fit-content;
+            background-color: rgb(184, 197, 42);
             text-align: center;
         }
     </style>
@@ -16,7 +24,7 @@
         div.bg {
             width: 800px;
             height: 800px;
-            background-color: rgb(110, 177, 150);
+            background-color: rgb(170, 32, 170);
         }
     </style>
 </head>
@@ -37,33 +45,25 @@
         function mmm(x,y,val,dx) {
             var element = document.createElement('div');
             element.className = 'container';
+            element.className = 'container2';
             element.innerHTML = val;
             element.style.left = x + 'px';
-           // element.style.left = y + 'px';
             element.style.top = y + 'px';
-            //element.style.top = x + 'px';
             element.px = x;
-            element.py = y;
             element.xDir = 1;
-            element.yDir = -1;
             document.getElementById('parent').appendChild(element);
             setInterval(() => {                                                 
-                if ((element.xDir == -1 && element.px <= 0)||(element.xDir == 1 && element.px >= 800)) {                   
+                if ((element.xDir == -1 && element.px <= 0)||(element.xDir == 1 && element.px >= 800)) {                     
                     element.xDir *= -1;  
                 } 
                 element.px += element.xDir *dx;
                 element.style.left = element.px + 'px';
             }, 10);
-            setInterval(() => {                                                 
-                if ((element.yDir == -1 && element.py <= 0)||(element.yDir == 1 && element.py >= 800)) {                   
-                    element.yDir *= -1;  
-                } 
-                element.py += element.yDir *dx;
-                element.style.top = element.py + 'px';
-            }, 10);
             
         }
         
+
+
     </script>
 </body>
 

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>table2</title>
+    <style>
+        .content-table {
+            border-collapse: collapse;      /*隣り合ったtableの間隔*/
+            margin: 60px auto;              /*auto 親要素の横幅 - 指定した要素の横幅、親要素の横幅に影響せず常に右寄せ*/
+            font-size: 2em;
+           /* width: 50px;*/
+            border-radius: 8px 8px 8px 8px;
+            overflow: hidden;               /*overflow はみ出た部分をどうするか hidden 隠す scroll*/
+            box-shadow: 0 0 20px rgba(3, 245, 24, 0.8);
+        }
+
+        .content-table thead tr {
+            background: #3fd416;
+            color: #f3eef1;
+            text-align: center;             /*どこに整列させるか*/
+            font-weight: bold;              /*文字の太さ　700？　nomal 400*/
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #080808;
+            transition: 0.8s all ease-in;          /*アニメーションの変化の具合*/
+        }
+
+        .content-table tbody tr:nth-last-of-type(odd) {
+            background: #eeb1e1;
+        }
+
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #fb6c06;
+        }
+
+        .content-table tbody tr:hover {
+            font-weight: bold;
+            color: #c4ee43;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="content-table">
+        <thead>                             <!--表の行をグループ化　tableの子要素-->
+            <tr>                            <!--table row 横方向の指定-->
+                <th>id</th>                 <!--表の見出しのヘッダーセルを作る要素　theadの子要素-->
+                <th>商品名</th>
+                <th>値段￥</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>幕の内</td>
+                <td>400</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>唐揚げ</td>
+                <td>500</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>油淋鶏</td>
+                <td>650</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>これがハンバーグ弁当</td>
+                <td>700</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>table3</title>
+    <style>
+        .content-table {
+            border-collapse: collapse;     
+            margin: 60px auto;             
+            font-size: 2em;
+           /* width: 50px;*/
+            border-radius: 8px 8px 8px 8px;
+            overflow: hidden;               
+            box-shadow: 0 0 20px rgba(3, 245, 24, 0.8);
+        }
+
+        .content-table thead tr {
+            background: #3fd416;
+            color: #f3eef1;
+            text-align: center;             
+            font-weight: bold;              
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #080808;
+            transition: 0.8s all ease-in;          
+        }
+
+        .content-table tbody tr:nth-last-of-type(odd) {
+            background: #eeb1e1;
+        }
+
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #fb6c06;
+        }
+
+        .content-table tbody tr:hover {
+            font-weight: bold;
+            color: #c4ee43;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="作成" onclick="createTable()"> 
+    <table class="content-table">
+        <thead>                             
+            <tr>                           
+                <th>id</th>                
+                <th>商品名</th>
+                <th>値段￥</th>
+            </tr>
+        </thead>
+        <tbody id="tbl">
+           
+            
+        </tbody>
+    </table>
+    <script>
+        var js = [                                      //配列
+            {
+                ID:"1", NAME:"リンゴ", PRICE:"10"
+            },
+            {
+                ID:"2", NAME:"ミカン", PRICE:"10"
+            }
+        ]
+        function createTable (){
+            var tbl = document.getElementById('tbl');
+            for(var i = 0; js.length; i++){
+                var row = js[i];
+                var tr = document.createElement('tr');
+                for(var col in row){
+                    var td = document.createElement('td');
+                    td.val = col.val;
+                    tr.appendChild(td);
+                }   
+                tbl.appendChild(tr);  
+                 
+            }
+                      
+            
+           
+        }
+        
+    </script>
+</body>
+
+</html>

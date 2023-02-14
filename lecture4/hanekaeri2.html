@@ -30,18 +30,17 @@
         function create(){
             var x = Math.floor(Math.random()*800);
             var y = Math.floor(Math.random()*800);
-            var dx = 5 + Math.floor(Math.random()*30);      
-            var m = new mmm(x,y,'□',dx);
+            var dx = 5 + Math.floor(Math.random()*30);
+            var dy = 5 + Math.floor(Math.random()*30);
+            var m = new mmm(x,y,'□',dx,dy);
         }
 
-        function mmm(x,y,val,dx) {
+        function mmm(x,y,val,dx,dy) {
             var element = document.createElement('div');
             element.className = 'container';
             element.innerHTML = val;
             element.style.left = x + 'px';
-           // element.style.left = y + 'px';
             element.style.top = y + 'px';
-            //element.style.top = x + 'px';
             element.px = x;
             element.py = y;
             element.xDir = 1;
@@ -51,17 +50,14 @@
                 if ((element.xDir == -1 && element.px <= 0)||(element.xDir == 1 && element.px >= 800)) {                   
                     element.xDir *= -1;  
                 } 
-                element.px += element.xDir *dx;
-                element.style.left = element.px + 'px';
-            }, 10);
-            setInterval(() => {                                                 
                 if ((element.yDir == -1 && element.py <= 0)||(element.yDir == 1 && element.py >= 800)) {                   
                     element.yDir *= -1;  
                 } 
-                element.py += element.yDir *dx;
+                element.px += element.xDir *dx;
+                element.py += element.yDir *dy;
+                element.style.left = element.px + 'px';
                 element.style.top = element.py + 'px';
-            }, 10);
-            
+            }, 30);
         }
         
     </script>

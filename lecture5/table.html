@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>table</title>
+    <style>
+        /*全体の基本定義　border-radius　角丸くした*/
+        .content-table{
+            border-collapse: collapse;
+            margin: 25px auto;
+            font-size: 1.5em;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(132, 122, 122, 0.15);
+        }
+        /*見出し行の色替え　真ん中揃え、太字*/
+        .content-table thead tr{
+            background: #005498;
+            color: #ffffff;
+            text-align: center;
+            font-weight: bold;
+        }
+        /*罫線を灰色の細線　リンゴとミカンの間の線*/
+        .content-table tbody tr{
+            border-bottom: 1px solid #dddddd;
+            transition: 0.8s all ease;
+        }
+        /*偶数行をグレー*/
+        .content-table tbody tr:nth-last-of-type(even){
+            background:#f3f3f3;
+        }
+        /*一番下の枠を青い線*/
+        .content-table tbody tr:last-of-type{
+            border-bottom: 2px solid #005498;   
+        }
+        /*カーソル合わせたときのエフェクト*/
+        .content-table tbody tr:hover{
+            font-weight: bold;
+            color: #005498;
+        }
+    </style>
+ </head>
+
+ <body>
+    <table class ="content-table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>項目</th>
+                <th>数</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>リンゴ</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>ミカン</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>バナナ</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>トマト</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>ナシ</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>モモ</td>
+                <td>10</td>
+            </tr>
+        </tbody>
+    </table>
+ </body>
+</html>
