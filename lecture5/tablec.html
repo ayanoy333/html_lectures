@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>copy</title>
+</head>
+<body>
+    <script>
+            const json = '{"name": "トマト", "type": "野菜", "color": "赤"}';
+            const obj = JSON.parse(json);  // objectに変換
+            console.log(obj);
+            // > {name: "トマト", type: "野菜", color: "赤"}
+            Object.keys(obj).forEach(function (key) {
+                console.log([key] + ": " + obj[key]);
+                // > name: トマト
+                // > type: 野菜
+                // > color: 赤
+            });
+
+            
+            const json2 = '{"data": [{"name": "トマト", "type": "野菜", "color": "赤"}, {"name": "みかん", "type": "果物", "color": "橙色"}]}';
+            const obj2 = JSON.parse(json2);  // objectに変換
+            console.log(obj2);
+            // > data: Array(2)
+            // >  0: {name: "トマト", type: "野菜", color: "赤"}
+            // >  1: {name: "みかん", type: "果物", color: "橙色"}
+            const obj_data = obj2['data'];
+            obj_data.forEach(o => {
+                console.log(o);
+                console.log(o.name, o.type, o.color);
+                // forEach: 1周目
+                // > {name: "トマト", type: "野菜", color: "赤"}
+                // > トマト 野菜 赤
+                // forEach: 2周目
+                // > {name: "みかん", type: "果物", color: "橙色"}
+                // > みかん 果物 橙色
+            });
+
+        </script>
+</body>
+</html>
