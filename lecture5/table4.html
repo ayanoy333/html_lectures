@@ -105,20 +105,29 @@
         function createJson(){
             var json = JSON.stringify(js);                  //文字列に変換
             var ta = document.getElementById("json");
-            ta.innerHTML = json;
+            ta.value = json;
         }
 
         function createTableFromJson(){
-            var tb = document.getElementById("json");
-            const json2 = console.log(js);
-            const obj = JSON.parse("json2");
-            console.log("obj");
-            const obj_data = json2['js'];
-            obj_data.forEach(o =>{
-                console.log(js);
-                console.log(js.ID, js.NAME, js.PRICE);
-            });
-            tb.innerHTML = json2;
+            var json2 = JSON.parse(document.getElementById("json").value);
+            console.log(json2);
+            var tbl = document.getElementById('tbl');
+            tbl.innerHTML = "";
+            var tr;
+            var td;
+            json2.forEach(element => {
+                tr = document.createElement("tr");
+                td = document.createElement("td");
+                td.innerHTML = element.ID;
+                tr.appendChild(td);
+                td = document.createElement("td");     
+                td.innerHTML = element.NAME;
+                tr.appendChild(td);
+                td = document.createElement("td");
+                td.innerHTML = element.PRICE;
+                tr.appendChild(td);                     
+                tbl.appendChild(tr);
+            });  
         }
         
     </script>
