@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>table4</title>
+    <title>table</title>
     <style>
         .line-right {
             border-right: 3px solid red;
@@ -68,7 +68,9 @@
     <input type="button" value="json作成" onclick="createJson()"><br>
     <textarea id="json" style="width: 350px; height: 100px;"></textarea><br>
     <input type="button" value="jsonからtableを作成" onclick="createTableFromJson()"><br>
-    <input type="button" value="restfulAPIでtableを作成" onclick="callAPI()">
+    <input type="button" value="restfulAPIでtableを作成" onclick="callAPI()"><br>
+    <input type="button" value="restfulAPIでvgtableを作成" onclick="callvg()"><br>
+    <input type="button" value="restfulAPIでmltableを作成" onclick="callml()">
     <script>
         var js = [
             {
@@ -106,7 +108,7 @@
         function createJson() {
             var json = JSON.stringify(js);                  //文字列に変換
             var ta = document.getElementById("json");
-            ta.value = json;
+            ta.value = json;                                //json(HTMLを含まないもの)はvalueでセット　innerHTMLは使えない
         }
 
         function createTableFromJson() {
@@ -155,6 +157,64 @@
                     tbl.appendChild(tr);
                 });
             } else {                                    //ネットワークエラーなどはalertも返らない
+                alert("HTTP-Error: " + response.status);
+            }
+
+        }
+        async function callvg() {
+            let response = await fetch("http://localhost:8443/getvg");
+
+            if (response.ok) { // HTTP ステータスが 200-299 の場合
+                // レスポンスの本文を取得(後述)
+                let json = await response.json();
+                console.log(json);
+                var tbl = document.getElementById('tbl');
+                tbl.innerHTML = "";
+                var tr;
+                var td;
+                json.forEach(element => {
+                    tr = document.createElement("tr");
+                    td = document.createElement("td");
+                    td.innerHTML = element.ID;
+                    tr.appendChild(td);
+                    td = document.createElement("td");
+                    td.innerHTML = element.NAME;
+                    tr.appendChild(td);
+                    td = document.createElement("td");
+                    td.innerHTML = element.PRICE;
+                    tr.appendChild(td);
+                    tbl.appendChild(tr);
+                });
+            } else {
+                alert("HTTP-Error: " + response.status);
+            }
+
+        }
+        async function callml() {
+            let response = await fetch("http://localhost:8443/getml");
+
+            if (response.ok) { // HTTP ステータスが 200-299 の場合
+                // レスポンスの本文を取得(後述)
+                let json = await response.json();
+                console.log(json);
+                var tbl = document.getElementById('tbl');
+                tbl.innerHTML = "";
+                var tr;
+                var td;
+                json.forEach(element => {
+                    tr = document.createElement("tr");
+                    td = document.createElement("td");
+                    td.innerHTML = element.ID;
+                    tr.appendChild(td);
+                    td = document.createElement("td");
+                    td.innerHTML = element.NAME;
+                    tr.appendChild(td);
+                    td = document.createElement("td");
+                    td.innerHTML = element.PRICE;
+                    tr.appendChild(td);
+                    tbl.appendChild(tr);
+                });
+            } else {
                 alert("HTTP-Error: " + response.status);
             }
 
