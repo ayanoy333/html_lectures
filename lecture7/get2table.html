@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>table</title>
+    <style>
+        .line-right {
+            border-right: 3px solid red;
+        }
+
+        .content-table {
+            border-collapse: collapse;
+           /* margin: 60px auto;*/
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            font-size: 1em;
+            /* width: 50px;*/
+            border-radius: 0 0 0 0;
+            overflow: hidden;
+            box-shadow: 5px 5px 0px rgba(127, 129, 234, 0.8);
+        }
+
+        .content-table thead tr {
+            background: #23259c;
+            color: #f5f1f3;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #080808;
+            transition: 0.8s all ease-in;
+        }
+
+        .content-table tbody tr:nth-last-of-type(odd) {
+            background: #699ee4;
+        }
+
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #fb6c06;
+        }
+
+        .content-table tbody tr:hover {
+            font-weight: bold;
+            color: #ee1111;
+        }
+        label.tabletitle{
+            display: block;
+            text-align: center;
+            font-size: 1.8em;
+        }
+    </style>
+</head>
+
+<body>
+    <input class ="tabletitle" type="button" value="作成" onclick="callAPI()"><br>
+    <label class = "tabletitle" id="title1">vegetable</label>
+    <table class="content-table">
+        <thead>
+            <tr>
+                <div class="line-right">
+                    <p>
+                        <th>id</th>
+                    </p>
+                </div>
+                <th>商品名</th>
+                <th>値段￥</th>
+            </tr>
+        </thead>
+        <tbody id="table1">
+        </tbody>
+    </table>
+    <label class ="tabletitle" id="title2">meal</label>
+    <table class="content-table">
+        <thead>
+            <tr>
+                <div class="line-right">
+                    <p>
+                        <th>id</th>
+                    </p>
+                </div>
+                <th>商品名</th>
+                <th>値段￥</th>
+            </tr>
+        </thead>
+        <tbody id="table2">
+        </tbody>
+    </table>
+    <script>
+        ///
+        function createTable(tableID,dat) {                 //dat jsonの配列
+            var tbl = document.getElementById(tableID);     //tableID 文字列
+            var tr;
+            var td;
+            tbl.innerHTML = "";
+            dat.forEach(element => {
+                tr = document.createElement("tr");
+                td = document.createElement("td");
+                td.innerHTML = element.ID;
+                tr.appendChild(td);
+                td = document.createElement("td");
+                td.innerHTML = element.NAME;
+                tr.appendChild(td);
+                td = document.createElement("td");
+                td.innerHTML = element.PRICE;
+                tr.appendChild(td);
+                tbl.appendChild(tr);
+            });
+        }
+
+        async function callAPI() {
+            let response = await fetch("http://localhost:8443/get2table");
+
+            if (response.ok) { // HTTP ステータスが 200-299 の場合
+                // レスポンスの本文を取得(後述)
+                let json = await response.json();               //response.json jsonオブジェクトが作られる
+                console.log(json);
+                document.getElementById("title1").innerText =json.title1;
+                document.getElementById("title2").innerText =json.title2;
+                createTable("table1",json.table1);
+                createTable("table2",json.table2);
+            } else {
+                alert("HTTP-Error: " + response.status);
+            }
+
+        }
+    </script>
+</body>
+
+</html>
