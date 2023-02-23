@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>kiso</title>
+    </head>
+    <body>
+        <h3>00ご挨拶</h3>
+        <input type="button" value="実行" onclick="document.getElementById('00').value = 'Hello World';">
+        <input type="text" id="00">
+        <h3>01足し算</h3>
+        <input type="button" value="実行" onclick="document.getElementById('01').value =12345 + 23456;">
+        <input type="text" id="01">
+        <h3>02余り</h3>
+        <input type="button" value="実行" onclick="document.getElementById('02').value =12345 % 7;">
+        <input type="text" id="02">
+        <h3>03入力</h3>
+        <input type="text" id="03input">
+        <input type="button" value="表示" onclick="document.getElementById('03output').value = document.getElementById('03input').value">
+        <input type="text" id="03output">
+        <h3>04入力と計算</h3>
+        <input type="text" id="04input">
+        <input type="button" value="表示" onclick="document.getElementById('04output').value = document.getElementById('04input').value * 3">
+        <input type="text" id="04output">
+        <h3>05四則演算</h3>
+        <input type="text" id="05input1">
+        <input type="text" id="05input2">
+        <input type="button" value="計算" onclick="calc05()"><br>
+        <label>和</label><input type="text" id="05output1"><br>
+        <label>差</label><input type="text" id="05output2"><br>
+        <label>積</label><input type="text" id="05output3"><br>
+        <label>商</label><input type="text" id="05output4"><br>
+        <label>余り</label><input type="text" id="05output5">
+        <h3>06  0?</h3>
+        <input type="text" id="06input">
+        <input type="button" value="表示" onclick="f06()">
+        <input type="text" id="06output">
+        <script>
+            function calc05(){
+                var i1 = eval(document.getElementById("05input1").value);
+                var i2 = eval(document.getElementById("05input2").value);
+                document.getElementById("05output1").value = i1 + i2;
+                document.getElementById("05output2").value = i1 - i2;
+                document.getElementById("05output3").value = i1 * i2;
+                document.getElementById("05output4").value = Math.floor(i1 / i2);
+                document.getElementById("05output5").value = i1 % i2;
+            }
+            function f06(){
+                var inputnum = eval(document.getElementById("06input").value);
+                if(inputnum == 0){
+                    document.getElementById("06output").value = "zero";
+                }else{
+                    document.getElementById("06output").value = inputnum;
+                }
+            }
+        </script>
+    </body>
+</html>
