@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>00</h3>
+        <input type="button" value="実行" onclick="document.getElementById('00').value = 'Hello World';">
+        <input type="text" id="00">
+        <h3>01</h3>
+        <input type="button" value="実行" onclick="document.getElementById('01').value = 12345 + 23456;">
+        <input type="text" id="01">
+        <h3>02</h3>
+        <input type="button" value="実行" onclick="document.getElementById('02').value = 12345 % 7;">
+        <input type="text" id="02">
+        <h3>03</h3>
+        <input type="text" id="03input">
+        <input type="button" value="表示" onclick="document.getElementById('03output').value = document.getElementById('03input').value;">
+        <input type="text" id="03output">
+        <h3>04</h3>
+        <input type="text" id="04input">
+        <input type="button" value="表示" onclick="document.getElementById('04output').value = eval(document.getElementById('04input').value) * 3;">
+        <input type="text" id="04output">
+        <h3>05</h3>
+        <input type="text" id="05input1">
+        <input type="text" id="05input2">
+        <input type="button" value="計算" onclick="f5()"><br>
+        <label>和</label><input type="text" id="05output1"><br>
+        <label>差</label><input type="text" id="05output2"><br>
+        <label>積</label><input type="text" id="05output3"><br>
+        <label>商</label><input type="text" id="05output4"><br>
+        <label>余り</label><input type="text" id="05output5">
+        <h3>06</h3>
+        <input type="text" id="06input">
+        <input type="button" value="判定" onclick="f6()">
+        <input type="text" id="06output">
+        <h3>07</h3>
+        <input type="text" id="07input">
+        <input type="button" value="判定" onclick="f7()">
+        <input type="text" id="07output">
+        <h3>08</h3>
+        <input type="text" id="08input">
+        <input type="button" value="判定" onclick="f8()">
+        <input type="text" id="08output">
+        <h3>09</h3>
+        <input type="text" id="09input">
+        <input type="button" value="判定" onclick="f9()">
+        <input type="text" id="09output">
+        <h3>10</h3>
+        <input type="text" id="10input">
+        <input type="button" value="絶対値" onclick="f10()">
+        <input type="text" id="10output">
+        <h3>11</h3>
+        <input type="button" value="挨拶" onclick="f11()">
+        <textarea id="11output"></textarea>
+        <h3>12</h3>
+        <input type="text" id="12input">
+        <textarea id="12output"></textarea>
+        <input type="button" value="挨拶" onclick="f12()">
+        <h3>13</h3>
+        <input type="text" id="13input">
+        <textarea id="13output"></textarea>
+        <input type="button" value="開始" onclick="f13()">
+
+        <script>
+            function f5(){
+                var input1 = eval(document.getElementById('05input1').value);
+                var input2 = eval(document.getElementById('05input2').value);
+                document.getElementById("05output1").value = input1 + input2;
+                document.getElementById("05output2").value = input1 - input2;
+                document.getElementById("05output3").value = input1 * input2;
+                document.getElementById("05output4").value = input1 / input2;
+                document.getElementById("05output5").value = input1 % input2;
+            }
+            function f6(){
+                var inputnum = eval(document.getElementById("06input").value);
+                if(inputnum == 0){
+                    document.getElementById("06output").value = "zero";
+                }else{
+                    document.getElementById("06output").value = inputnum;
+                }
+            }
+            function f7(){
+                var inputnum = eval(document.getElementById("07input").value);
+                if(inputnum == 0){
+                    document.getElementById("07output").value = "zero";
+                }else{
+                    document.getElementById("07output").value = "not zero";
+                }
+            }
+            function f8(){
+                var inputnum = eval(document.getElementById("08input").value);
+                if(inputnum > 0){
+                    document.getElementById("08output").value = "positive";
+                }else{
+                    document.getElementById("08output").value = inputnum;
+                }
+            }
+            function f9(){
+                var inputnum = eval(document.getElementById("09input").value);
+                if(inputnum > 0){
+                    document.getElementById("09output").value = "positive";
+                }if(inputnum == 0){
+                    document.getElementById("09output").value = "zero";
+                }if(inputnum < 0){
+                    document.getElementById("09output").value = "negative";
+                }
+            }
+            function f10(){
+                var inputnum = eval(document.getElementById("10input").value);
+                if(inputnum >= 0){
+                    document.getElementById("10output").value = inputnum;
+                }if(inputnum < 0){
+                    document.getElementById("10output").value = inputnum *(-1);
+                }
+            }
+            function f11(){
+                var data = "";
+                for(i = 0; i < 10; i++){
+                    data += "Hello World!\r\n";
+                }
+                document.getElementById("11output").value = data;
+            }
+            function f12(){
+                var inputnum = eval(document.getElementById("12input").value);
+                var data = "";
+                for(i = 0; i < inputnum; i++){
+                    data += "Hello World!\r\n";
+                }
+                document.getElementById("12output").value = data;
+            }
+            function f13(){
+                var inputnum = eval(document.getElementById("13input").value);
+                
+            }
+
+        </script>
+    </body>
+</html>

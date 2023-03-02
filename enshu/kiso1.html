@@ -35,7 +35,61 @@
         <input type="text" id="06input">
         <input type="button" value="表示" onclick="f06()">
         <input type="text" id="06output">
-        <script>
+        <h3>07  0 or not 0</h3>
+        <input type="text" id="07input">
+        <input type="button" value="表示" onclick="f07()">
+        <input type="text" id="07output">
+        <h3>08  positive  or not</h3>
+        <input type="text" id="08input">
+        <input type="button" value="判定" onclick="f08()">
+        <input type="text" id="08output">
+        <h3>09  positive,negative or zero</h3>
+        <input type="text" id="09input">
+        <input type="button" value="判定" onclick="f09()">
+        <input type="text" id="09output">
+        <h3>10  絶対値 </h3>
+        <input type="text" id="10input">
+        <input type="button" value="表示" onclick="f10()">
+        <input type="text" id="10output">
+        <h3>11 挨拶</h3>
+        <input type="button" value="表示" onclick="f11()">
+        <textarea id="11output" cols = "30" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>12 挨拶指定回</h3>
+        <input type="text" id="12input">
+        <input type="button" value="表示" onclick="f12()">
+        <textarea id="12output" cols = "30" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>13カウントアップ</h3>
+        <input type="text" id="13input">
+        <input type="button" value="開始" onclick="f13()">
+        <textarea id="13output"cols = "30" rows = "15" style="white-space: pre-line"></textarea></textarea>
+        <h3>14カウントダウン</h3>
+        <input type="text" id="14input">
+        <input type="button" value="開始" onclick="f14()">
+        <textarea id="14output"cols = "30" rows = "15" style="white-space: pre-line"></textarea></textarea>
+        <h3>15カウントアップ2</h3>
+        <input type="text" id="15input">
+        <input type="button" value="開始" onclick="f15()">
+        <textarea id="15output"cols = "30" rows = "15" style="white-space: pre-line"></textarea></textarea>
+        <h3>16 0でおしまい</h3>
+        <input type="text" id="16input">
+        <input type="button" value="開始" onclick="f16()">
+        <input type="text" id="16output">
+        <h3>17 配列を初期化</h3>
+        <input type="button" value="初期化" onclick="f17()">
+        <textarea id="17output" cols = "30" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>18 配列を入力値で初期化</h3>
+        <input type="text" id="18input">
+        <input type="button" value="初期化" onclick="f18()">
+        <textarea id="18output" cols = "30" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>19 配列に入力値を格納</h3>
+        <input type="text" id="19input1"><br>
+        <input type="text" id="19input2"><br>
+        <input type="text" id="19input3"><br>
+        <input type="text" id="19input4"><br>
+        <input type="text" id="19input5"><br>
+        <input type="button" value="開始" onclick="f19()">
+        <textarea id="19output"cols = "30" rows = "15" style="white-space: pre-line"></textarea>
+       <script>
             function calc05(){
                 var i1 = eval(document.getElementById("05input1").value);
                 var i2 = eval(document.getElementById("05input2").value);
@@ -52,6 +106,123 @@
                 }else{
                     document.getElementById("06output").value = inputnum;
                 }
+            }
+            function f07(){
+                var inputnum = eval(document.getElementById("07input").value);
+                if(inputnum == 0){
+                    document.getElementById("07output").value = "zero";
+                }else{
+                    document.getElementById("07output").value = "not zero";
+                }
+            }
+            function f08(){
+                var inputnum = eval(document.getElementById("08input").value);
+                if(inputnum > 0){
+                    document.getElementById("08output").value = "positive";
+                }else{
+                    document.getElementById("08output").value = "not positive";
+                }
+            }
+            function f09(){
+                var inputnum = eval(document.getElementById("09input").value);
+                if(inputnum > 0){
+                    document.getElementById("09output").value = "positive";
+                }if(inputnum < 0){
+                    document.getElementById("09output").value = "negative";
+                }if(inputnum == 0){
+                    document.getElementById("09output").value = "zero";
+                }
+            }
+            function f10(){
+                document.getElementById("10output").value = Math.abs(document.getElementById("10input").value);
+                /*
+                var inputnum = eval(document.getElementById("10input").value);
+                if(inputnum > 0){
+                    document.getElementById("10output").value = inputnum;
+                }if(inputnum < 0){
+                    document.getElementById("10output").value = inputnum * -1;
+                }if(inputnum == 0){
+                    document.getElementById("10output").value = "0";
+                }*/
+            }
+            function f11(){
+                var data = "";
+                for (i = 0; i < 10; i++){
+                    data += "Hello World!\r\n";
+                }
+                document.getElementById('11output').value = data;
+            }
+            function f12(){
+                var inputnum = eval(document.getElementById("12input").value);
+                var data = "";
+                for (i = 0; i < inputnum; i++){
+                    data += "Hello World!\r\n";
+                }
+                document.getElementById('12output').value = data;
+            }
+            function f13(){
+                var inputnum = eval(document.getElementById("13input").value);
+                var data = "";
+                for (i = 0; i <= inputnum; i++){
+                    data += String(i)+"\r\n";
+                }
+                document.getElementById('13output').value = data;
+            }
+            function f14(){
+                var inputnum = eval(document.getElementById("14input").value);
+                var data = "";
+                for (i = inputnum; i >= 0; i--){
+                    data += String(i)+"\r\n";
+                }
+                document.getElementById('14output').value = data;
+            }
+            function f15(){
+                var inputnum = eval(document.getElementById("15input").value);
+                var data = "";
+                for (i = 0; i <= inputnum; i += 2){
+                    data += String(i)+"\r\n";
+                }
+                document.getElementById('15output').value = data;
+            }
+            function f16(){
+                var inputnum = eval(document.getElementById("16input").value);
+                var output = "";
+                if(inputnum == 0){
+                    output = "おしまい";
+                }else{
+                    output = String(inputnum);
+                }
+                document.getElementById('16output').value = output;
+            }
+            function f17(){
+                var ar = Array(10); /*配列の宣言*/
+                for(var i = 0; i < 10; i++){
+                    ar[i] = i;
+                }
+                document.getElementById("17output").value = ar;
+            }
+            function f18(){
+                var ar = Array(10); 
+                var input = eval(document.getElementById("18input").value);
+                for(var i = 0; i < 10; i++){
+                    ar[i] = input;
+                }
+               document.getElementById("18output").value = ar;
+               //document.getElementById("18output").value = document.getElementById("18input").value;
+            }
+            function f19(){
+                var ar = Array(5); 
+                var input1 = eval(document.getElementById("19input1").value);
+                var input2 = eval(document.getElementById("19input2").value);
+                var input3 = eval(document.getElementById("19input3").value);
+                var input4 = eval(document.getElementById("19input4").value);
+                var input5 = eval(document.getElementById("19input5").value);
+                ar[0] = input1;
+                ar[1] = input2;
+                ar[2] = input3;
+                ar[3] = input4;
+                ar[4] = input5;
+               document.getElementById("19output").value = ar;
             }
         </script>
     </body>

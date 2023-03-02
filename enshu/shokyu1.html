@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>20 割って掛ける</h3>
+        <input type="text" id="20input1">
+        <input type="text" id="20input2">
+        <input type="button" value="計算" onclick="f20()"><br>
+        <label>割り算</label><input type="text" id="20output1">
+        <label>かけ算</label><input type="text" id="20output2">
+        <h3>21 5より大きく20より小さい</h3>
+        <input type="text" id="21input">
+        <input type="button" value="判定" onclick="f21()">
+        <input type="text" id="21output">
+        <h3>22 -10以下または10以上</h3>
+        <input type="text" id="22input">
+        <input type="button" value="判定" onclick="f22()">
+        <input type="text" id="22output">
+        <h3>23 -5以上10未満</h3>
+        <input type="text" id="23input">
+        <input type="button" value="判定" onclick="f23()">
+        <input type="text" id="23output">
+        <h3>24 -10以上0未満、または、10以上</h3>
+        <input type="text" id="24input">
+        <input type="button" value="判定" onclick="f24()">
+        <input type="text" id="24output">
+        <h3>25 -10未満?、-10以上0未満?、0以上?</h3>
+        <input type="text" id="25input">
+        <input type="button" value="判定" onclick="f25()">
+        <input type="text" id="25output">
+
+        <script>
+            function f20(){
+                var i1 = eval(document.getElementById("20input1").value);
+                var i2 = eval(document.getElementById("20input2").value);
+                document.getElementById("20output1").value = Math.floor(i1 / i2);
+                document.getElementById("20output2").value = Math.floor(i1 / i2) * i2;
+            }
+            function f21(){
+                var i = eval(document.getElementById("21input").value);
+                if(i > 5 && i < 20){
+                    document.getElementById("21output").value = "OK";
+                }
+            }
+            function f22(){
+                var i = eval(document.getElementById("22input").value);
+                if(i <= -10 || i >= 10){
+                    document.getElementById("22output").value = "OK";
+                }
+            }
+            function f23(){
+                var i = eval(document.getElementById("23input").value);
+                if(-5 <= i && i < 10){
+                    document.getElementById("23output").value = "OK";
+                }else{
+                    document.getElementById("23output").value = "NG";
+                }
+            }
+            function f24(){
+                var i = eval(document.getElementById("24input").value);
+                if(-10 <= i && i < 0 || 10 <= i){
+                    document.getElementById("24output").value = "OK";
+                }else{
+                    document.getElementById("24output").value = "NG";
+                }
+            }
+            function f25(){
+                var i = eval(document.getElementById("25input").value);
+                if(i < -10){
+                    document.getElementById("25output").value = "range1";
+                }if(-10 <= i && i < 0){
+                    document.getElementById("25output").value = "range2";
+                }if(i >= 0){
+                    document.getElementById("25output").value = "range3";
+                }
+            }
+        </script>
+    </body>
+</html>
