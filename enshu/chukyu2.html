@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>chukyu2</title>
+    </head>
+    <body>
+        <h3>40 even or odd</h3>
+        <input type="text" id="40input">
+        <input type="button" value="判定" onclick="f40()">
+        <input type="text" id="40output">
+        <h3>41 1桁の自然数</h3>
+        <input type="text" id="41input">
+        <input type="button" value="判定" onclick="f41()">
+        <input type="text" id="41output">
+        <h3>42 小さい順?</h3>
+        <input type="text" id="42input1">
+        <input type="text" id="42input2">
+        <input type="text" id="42input3">
+        <input type="button" value="判定" onclick="f42()"><br>
+        <label>判定</label><input type="text" id="42output">
+        <h3>43 解の判別 ax^2 + bx + c = 0</h3>
+        <label>a</label><input type="text" id="43input1">
+        <label>b</label><input type="text" id="43input2">
+        <label>c</label><input type="text" id="43input3">
+        <input type="button" value="判定" onclick="f43()">
+        <input type="text" id="43output">
+
+        <script>
+            function f40(){
+                var i = eval(document.getElementById("40input").value);
+                data = "";
+                if(i%2 == 0){
+                    data = "even";
+                }else {
+                    data = "odd";
+                }
+                document.getElementById("40output").value = data;
+            }
+            function f41(){
+                var i = eval(document.getElementById("41input").value);
+                data = "";
+                if(1 <= i && i <= 9){
+                    data = i + "は一桁の自然数";
+                }else{
+                    data = i + "は一桁の自然数ではない";
+                }
+                document.getElementById("41output").value = data;
+            }
+            function f42(){
+                var i1 = eval(document.getElementById("42input1").value);
+                var i2 = eval(document.getElementById("42input2").value);
+                var i3 = eval(document.getElementById("42input3").value);
+                data = "";
+                if(i1 <= i2 && i2 <= i3){
+                    data = "OK";
+                }else{
+                    data = "NG";
+                }
+                document.getElementById("42output").value = data;
+            }
+            function f43(){
+                var a = eval(document.getElementById("43input1").value);
+                var b = eval(document.getElementById("43input2").value);
+                var c = eval(document.getElementById("43input3").value);
+                data = "";
+                if(b*b - (4*a*c) < 0){
+                    data = "2つの虚数解";
+                }else if(b*b - (4*a*c) > 0){
+                    data = "2つの実数解";
+                }else{
+                    data = "重解";
+                }
+                document.getElementById("43output").value = data;
+            }
+        </script>
+    </body>
+</html>

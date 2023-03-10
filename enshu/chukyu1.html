@@ -1,0 +1,405 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>chukyu</title>
+    </head>
+    <body>
+        <h3>40 even or odd</h3>
+        <input type="text" id="40input">
+        <input type="button" value="実行" onclick="f40()">
+        <input type="text" id="40output">
+        <h3>41 1桁の自然数?</h3>
+        <input type="text" id="41input">
+        <input type="button" value="実行" onclick="f41()">
+        <input type="text" id="41output">
+        <h3>42 小さい順？</h3>
+        <input type="text" id="42input1">
+        <input type="text" id="42input2">
+        <input type="text" id="42input3">
+        <input type="button" value="判定" onclick="f42()">
+        <input type="text" id="42output">
+        <h3>43 2次方程式の解の判別 ax^2 + bx + c = 0</h3>
+        <input type="text" id="43input1">
+        <input type="text" id="43input2">
+        <input type="text" id="43input3">
+        <input type="button" value="判定" onclick="f43()">
+        <input type="text" id="43output">
+        <h3>44 通貨換算</h3>
+       <input type="text" id="44input1"> <label>$</label>
+        <input type="text" id="44input2"><label>1ドル(円)</label>
+        <input type="button" value="換算" onclick="f44()"><br>
+        <input type="text" id="44output1">
+        <label>ドル</label><input type="text" id="44output2"><label>セント</label>
+        <h3>45 taxi</h3>
+        <input type="text" id="45input"><label>m</label>
+        <input type="button" value="計算" onclick="f45()">
+        <input type="text" id="45output"><label>円</label>
+        <h3>46 入場料</h3>
+        <input type="text" id="46input"><label>人</label>
+        <input type="button" value="計算" onclick="f46()">
+        <input type="text" id="46output"><label>円</label>
+        <h3>47 入れ替え</h3>
+        <label>a</label> <input type="text" id="47input1">
+        <label>b</label><input type="text" id="47input2">
+        <input type="button" value="入れ替え" onclick="f47()">
+        <input type="text" id="47output">
+        <h3>48 繰り返し計算</h3>
+        <input type="text" id="48input">
+        <input type="button" value="実行" onclick="f48()">
+        <textarea id="48output" cols = "30" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>49 九九</h3>
+        <input type="button" value="表示" onclick="f49()">
+        <textarea id="49output" cols = "40" rows = "20" style="white-space: pre-line"></textarea>
+        <h3>50 foobar</h3>
+        <input type="button" value="表示" onclick="f50()">
+        <textarea id="50output" cols = "30" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>51 お支払い</h3>
+        <input type="text" id="51input">
+        <input type="button" value="計算" onclick="f51()">
+        <input type="text" id="51output" style="width: 400px;">
+        <h3>52 閏年</h3>
+        <input type="text" id="52input">
+        <input type="button" value="判定" onclick="f52()">
+        <input type="text" id="52output">
+        <h3>53 素因数分解</h3>
+        <input type="text" id="53input">
+        <input type="button" value="計算" onclick="f53()">
+        <textarea id="53output" cols = "30" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>54 最大最小</h3>
+        <input type="button" value="実行" onclick="f54()">
+        <label>最小</label><input type="text" id="54output1">
+        <label>最大</label><input type="text" id="54output2">
+        <h3>55 夢想花again</h3>
+        <input type="button" value="表示" onclick="f55()">
+        <textarea id="55output" cols = "75" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>56 二進数</h3>
+        <input type="text" id="56input">
+        <input type="button" value="計算" onclick="f56()">
+        <textarea id="56output" cols = "20" rows = "20" style="white-space: pre-line"></textarea>
+        <h3>57 テスト集計</h3>
+        <input type="button" value="集計" onclick="f57()">
+        <textarea id="57output" cols = "40" rows = "20" style="white-space: pre-line"></textarea>
+        <h3>58 棒グラフ</h3>
+        <input type="text" id="58input1">
+        <input type="text" id="58input2">
+        <input type="text" id="58input3">
+        <input type="text" id="58input4">
+        <input type="text" id="58input5">
+        <input type="button" value="表示" onclick="f58()">
+        <textarea id="58output" cols = "50" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>59 行列の和</h3>
+        <input type="button" value="計算" onclick="f59()">
+        <textarea id="59output" cols = "30" rows = "10" style="white-space: pre-line"></textarea>
+
+
+
+        <script>
+            function f40(){
+                var i = eval(document.getElementById("40input").value);
+                if(i%2 == 0){
+                    document.getElementById("40output").value = "even";
+                }else{
+                    document.getElementById("40output").value = "odd";
+                }
+            }
+            function f41(){
+                if(!isNaN(document.getElementById("41input").value)){       //数値として見なせるときはfalseが返るので！をつけて !false = trueにして数値判定をしている
+                    //このif文の中は数値として判定されたもの
+                    var i = eval(document.getElementById("41input").value);
+                    if(i >= 1 && i <= 9){
+                        document.getElementById("41output").value = "a single figure";
+                    }else{
+                        document.getElementById("41output").value = "not a single figure";
+                    }
+                }else{
+                    //この中は数値以外
+                    document.getElementById("41output").value = "not number";
+                }
+                
+            }
+            function f42(){
+                var i1 = eval(document.getElementById("42input1").value);
+                var i2 = eval(document.getElementById("42input2").value);
+                var i3 = eval(document.getElementById("42input3").value);
+                if(i1 <= i2 && i2 <= i3){
+                    document.getElementById("42output").value = "OK";
+                }else{
+                    document.getElementById("42output").value = "NG";
+                }
+            }
+            function f43(){
+                var i1 = eval(document.getElementById("43input1").value);
+                var i2 = eval(document.getElementById("43input2").value);
+                var i3 = eval(document.getElementById("43input3").value);
+                if((i2)*(i2)-4*(i1)*(i3) > 0){
+                    document.getElementById("43output").value = "2つの実数解";
+                }if((i2)*(i2)-4*(i1)*(i3) < 0){
+                    document.getElementById("43output").value = "2つの虚数解";
+                }if((i2)*(i2)-4*(i1)*(i3) == 0){
+                    document.getElementById("43output").value = "重解";
+                }
+            }
+            function f44(){     //わからない
+                var i1 = eval(document.getElementById("44input1").value); 
+                var i2 = eval(document.getElementById("44input2").value);
+                var d = Math.floor(i1 / i2);                //
+                var c = Math.floor(100*((i1/ i2) - d));     //100セントで $1
+                document.getElementById("44output1").value = d;
+                document.getElementById("44output2").value = c;
+            }
+            function f45(){
+                var input = eval(document.getElementById("45input").value);
+                var fare;   //運賃
+                var d;      //距離
+                var e;      //313m以降
+                if(input <= 1700){
+                    fare = 610;
+                }if(input > 1700){
+                    d = input - 1700;
+                    if(d%313 == 0){
+                        e = d/313;
+                        fare = e*80 + 610;
+                    }else{
+                        e = Math.floor(d/313);
+                        fare = (e + 1)*80 + 610;
+                    }
+                }
+                document.getElementById("45output").value = fare;
+            }
+            function f46(){
+                p = eval(document.getElementById("46input").value);
+                var fee;
+                if(p < 5){
+                    //ここは5人未満
+                    fee = 600*p;
+                }else if(p < 20){
+                    //ここは5人以上、20人未満
+                    fee = 550*p;
+                }else{
+                    //20人以上   127~136が1つの判定部 else->その他default
+                    fee = 500*p;
+                }
+                document.getElementById("46output").value = fee;
+            }
+            function f47(){
+                a = document.getElementById("47input1").value;
+                b = document.getElementById("47input2").value;
+                temp = a;       //一時退避
+                a = b;          //aを退避させたのでbをそのまま入れる
+                b = temp;       //退避させていたaを入れる
+                document.getElementById("47output").value = "a = " +a + " b = " +b;
+            }
+            function f48(){
+                var input = eval(document.getElementById("48input").value);
+                var result = input;
+                var data = "";
+                for (i = input; result != 1;){
+                    if(result%2 == 0){
+                        result /= 2;        //result= result /2
+                    }else{
+                        result = result*3 + 1;
+                    }
+                    data += String(result) + "\r\n"; 
+                }
+                document.getElementById("48output").value = data;
+            }
+            function f49(){     //最後だけ表示
+                var data ="";               
+                for(var i = 1; i <= 9; i++){
+                    for(var j = 1; j <= 9; j++){
+                        data += ( '   ' + i * j ).slice( -4 );        //'3ケタ'のスペース　slice 全体を3ケタ
+                    }
+                    data += "\r\n";             //jが1-9のループを抜けたら改行
+                }
+               document.getElementById("49output").value = data;
+            }
+            function f50(){     //else if でつなげないと1つの判定にならない　dataにiを2回入れることになるので1度判定した3,5も表示される
+                var data = "";
+                for(i = 1; i <=100; i++){
+                    if(i%3 == 0 && i%5 == 0){
+                        data += "foobar\r\n";
+                    }else if(i%3 == 0){
+                        data += "foo\r\n";
+                    }else if(i%5 == 0){
+                        data += "bar\r\n";
+                    }else{
+                        data += i + "\r\n";
+                    }
+                }
+                document.getElementById("50output").value = data;
+            }
+            function f51(){
+                var input = eval(document.getElementById("51input").value);
+                var h = Math.floor(input/100);
+                var t = Math.floor((input - h*100)/10);
+                var o = input - h*100 - t*10;               
+                document.getElementById("51output").value = "100円玉" + h + "枚 10円玉" + t + "枚 1円玉" + o + "枚";
+            }
+            function f52(){
+                var i = eval(document.getElementById("52input").value);
+                var data = "閏年ではない";
+                /*
+                if(i%4 == 0){
+                    if (i%100 != 0 || i%400 == 0){      //4で割り切れる年のうち
+                        data = "閏年である";
+                    }else{
+                        data = "閏年ではない";
+                    }
+                }else{
+                    data = "閏年ではない";
+                }
+                */
+               /* if((i%4 == 0) && (i%100 != 0 || i%400 == 0)){   //&&が()の中の両方にかかる
+                    data = "閏年である";
+                }else{
+                    data = "閏年ではない";
+                }*/
+                /*
+                if(i%4 == 0){
+                    if (i%100 != 0 || i%400 == 0){      
+                        data = "閏年である";
+                    }
+                }*/
+                /*if(
+                    (i%4 == 0) 
+                        && 
+                    (
+                        (i%100 != 0) || (i%400 == 0)
+                    )
+                ){   
+                    data = "閏年である";
+                }else{
+                    data = "閏年ではない";
+                }*/
+                if( (i%4 == 0) && ( (i%100 != 0) || (i%400 == 0) ) ){   
+                    data = "閏年である";
+                }
+
+                document.getElementById("52output").value = data;
+            }
+            function f53(){
+                var input = eval(document.getElementById("53input").value);
+                var data = "";
+                for(var i = 2; i <= input;){         
+                    if(input%i == 0){
+                        input = input/i;
+                        data += String(i) + ' ';
+                        continue;
+                    }
+                    i++;
+                }
+                document.getElementById("53output").value = data;
+            }
+            function f54(){
+                //var s = [10,268,682,676,492,723,858,962,804,556,128];
+                //var s = [50,110,176,879,499,362,843,226,484,506,20,122,435,959,970,558,28,154,893,197,130,596,30,949,957,622,967,439,224,61,152,988,868,291,559,349,219,955,931,169,592,981,514,226,482,511,277,543,902,129,344];
+                var s =[100,952,23,82,506,5,828,490,164,456,392,468,484,676,251,480,105,528,267,943,155,473,456,615,664,100,624,386,951,16,574,335,589,716,161,621,723,241,590,761,577,136,664,996,910,833,100,323,566,646,545,854,264,162,663,730,509,639,505,830,843,296,925,837,785,784,542,613,287,512,555,710,599,270,10,360,364,384,385,116,153,456,898,700,827,809,486,120,480,887,59,93,773,900,925,346,361,289,323,369,780]
+                var min = s[1];
+                var max = s[1];
+                for(var i = 0; i < s[0]; i++){
+                    var index = i + 1;
+                    if(min > s[index]){
+                        min = s[index];
+                    }
+                    if(max < s[index]){
+                        max = s[index];
+                    }
+                }
+                document.getElementById("54output1").value = min;
+                document.getElementById("54output2").value = max;
+            }
+            function f55(){
+                var data = "";
+                for(var d = 0; d < 3; d++){
+                    for(var i = 0; i < 9; i++){
+                        data += "とんで";
+                    }
+                    for(var i = 0; i < 3; i++){
+                        data += "まわって";
+                    }
+                    data += "まわる\r\n";
+                }
+                document.getElementById("55output").value = data;
+            }
+            function f56(){
+                var num = eval(document.getElementById("56input").value);
+                var ar = Array(16);
+                for(var i = 0; i < 16; i++){
+                    ar [i] = num%2;
+                    num = Math.floor(num/2);
+                }
+                var data = "";
+                for(var i = 15; i >= 0; i--){
+                    data += ar[i];
+                }
+                document.getElementById("56output").value = data;
+            }
+            function f57(){            
+                var ex = [  [10],
+                        [56,31,54],
+                        [2,79,33],
+                        [8,81,18],
+                        [66,42,37],
+                        [64,43,94],
+                        [14,31,100],
+                        [87,34,80],
+                        [28,82,87],
+                        [42,2,52],
+                        [96,88,4]   ];
+                var sE = 0;
+                var sM = 0;
+                var sJ = 0;
+                for(var i = 0; i < ex[0][0]; i++){
+                    sE += ex[i + 1][0];
+                    sM += ex[i + 1][1];
+                    sJ += ex[i + 1][2];
+                }
+                document.getElementById("57output").value += "平均点 英語:" + sE/ex[0][0] + " 数学:" + sM/ex[0][0] + " 国語:" + sJ/ex[0][0] + "\r\n個人合計点\r\n";
+                for(var i = 0; i < ex[0][0]; i++){      //ex[0][0] ->データ個数(10)
+                    document.getElementById("57output").value += i + ":\t" +   (ex[i + 1][0] +  ex[i + 1][1] +  ex[i + 1][2]) +"\r\n";
+                }
+            }
+            function f58(){
+                var ar = Array(5);
+                ar[0] = eval(document.getElementById("58input1").value);
+                ar[1] = eval(document.getElementById("58input2").value);
+                ar[2] = eval(document.getElementById("58input3").value);
+                ar[3] = eval(document.getElementById("58input4").value);
+                ar[4] = eval(document.getElementById("58input5").value);       
+                var data = "";
+                for(var i = 0; i < 5; i++){
+                    data += ar[i] + "\t:";
+                    for(var j = 1; j <= ar[i]; j++){
+                        data += "*"; 
+                        if(j%5 == 0){
+                            data += " ";
+                        }                                                   
+                    }
+                    data += "\r\n";
+                }
+                document.getElementById("58output").value = data;
+            }
+            function f59(){
+                var a = [];            //中身のない配列の宣言（初期化）
+                a[0] = [1,2,3];
+                a[1] = [4,5,6]; 
+                a[2] = [7,8,9]; 
+                var b = [];           
+                b[0] = [2,3,4];
+                b[1] = [5,6,7]; 
+                b[2] = [8,9,1];    
+                var data = "";  
+                for(var i = 0; i < 3; i++){
+                    for(var j = 0; j < 3; j++){
+                        data += a[i][j] + b[i][j]+ "\t";
+                    }
+                    data += "\r\n";
+                }
+                document.getElementById("59output").value = data;
+            }
+
+        </script>
+
+
+    </body>
+</html>

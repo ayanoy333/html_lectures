@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h3>80 互いに素</h3>
+        <input type="text" id="80input1">
+        <input type="text" id="80input2">
+        <input type="button" value="判定" onclick="f80()">
+        <input type="text" id="80output">
+
+        <script>
+            function f80(){     //全部互いに素
+                var i1 = eval(document.getElementById("80input1").value);
+                var i2 = eval(document.getElementById("80input2").value);
+                var n;
+                var data = "";
+                if(n >= 2 && i1%n == 0 && i2%n == 0){
+                    data = "互いに素ではない";
+                }else{
+                    data = "互いに素";
+                }
+                document.getElementById("80output").value = data;
+            }
+        </script>
+    </body>
+</html>

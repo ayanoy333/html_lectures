@@ -29,6 +29,66 @@
         <input type="text" id="25input">
         <input type="button" value="判定" onclick="f25()">
         <input type="text" id="25output">
+        <h3>26 switch case</h3>
+        <input type="text" id="26input">
+        <input type="button" value="実行" onclick="f26()">
+        <input type="text" id="26output">
+        <h3>27 nまでの総和</h3>
+        <input type="text" id="27input">
+        <input type="button" value="実行" onclick="f27()">
+        <input type="text" id="27output">
+        <h3>28 nの階乗</h3>
+        <input type="text" id="28input">
+        <input type="button" value="実行" onclick="f28()">
+        <input type="text" id="28output">
+        <h3>29 5つの合計</h3>
+        <input type="text" id="29input1">
+        <input type="text" id="29input2">
+        <input type="text" id="29input3">
+        <input type="text" id="29input4">
+        <input type="text" id="29input5">
+        <input type="button" value="計算" onclick="f29()">
+        <input type="text" id="29output">
+        <h3>30 棒グラフ</h3>
+        <input type="text" id="30input">
+        <input type="button" value="実行" onclick="f30()">
+        <textarea id="30output" cols = "30" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>31 棒グラフ改</h3>
+        <input type="text" id="31input">
+        <input type="button" value="実行" onclick="f31()">
+        <textarea id="31output" cols = "30" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>32 5の倍数でbar</h3>
+        <input type="button" value="実行" onclick="f32()">
+        <textarea id="32output" cols = "30" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>33 入力値抜き</h3>
+        <input type="text" id="33input">
+        <input type="button" value="実行" onclick="f33()">
+        <textarea id="33output" cols = "30" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>34 入力値抜き改</h3>
+        <input type="text" id="34input">
+        <input type="button" value="実行" onclick="f34()">
+        <textarea id="34output" cols = "30" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>35 配列要素の参照</h3>
+        <input type="text" id="35input">
+        <input type="button" value="参照" onclick="f35()">
+        <input type="text" id="35output">
+        <h3>36 続・配列要素の参照</h3>
+        <input type="text" id="36input1">
+        <input type="text" id="36input2">
+        <input type="button" value="計算" onclick="f36()">
+        <input type="text" id="36output">
+        <h3>37 続々・配列要素の参照</h3>
+        <input type="text" id="37input">
+        <input type="button" value="参照" onclick="f37()">
+        <input type="text" id="37output">
+        <h3>38 さらに・配列要素の参照</h3>
+        <input type="button" value="実行" onclick="f38()">
+        <textarea id="38output" cols = "30" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>39 もっと・配列要素の参照</h3>
+        <input type="button" value="実行" onclick="f39()">
+        <textarea id="39output" cols = "30" rows = "15" style="white-space: pre-line"></textarea>
+
+
 
         <script>
             function f20(){
@@ -74,6 +134,151 @@
                 }if(i >= 0){
                     document.getElementById("25output").value = "range3";
                 }
+            }
+            function f26(){
+                var i = eval(document.getElementById("26input").value);
+                switch(true){
+                    case i == 1:
+                        document.getElementById("26output").value = "one";
+                        break;
+                    case i == 2:
+                        document.getElementById("26output").value = "two";
+                        break;
+                    case i == 3:
+                        document.getElementById("26output").value = "three";
+                        break;
+                    default:
+                        document.getElementById("26output").value = "others";
+                }
+            }
+            function f27(){
+                var input = eval(document.getElementById("27input").value);
+                if(input > 0){
+                    data = input * (input + 1) / 2;
+                }else{
+                    data = 0;
+                }
+                document.getElementById("27output").value = data;
+            }
+            function f28(){
+                var input = eval(document.getElementById("28input").value);
+                var data = 1;
+                if (input > 0){
+                    for(i = 1; i <= input; i++){
+                        data = data * i;            //data *= i; 計算しながら結果を代入していく
+                    }
+               // }else{
+               //     data = 1;
+                }
+                document.getElementById("28output").value = data;
+            }
+            function f29(){
+                var input1 = eval(document.getElementById("29input1").value);
+                var input2 = eval(document.getElementById("29input2").value);
+                var input3 = eval(document.getElementById("29input3").value);
+                var input4 = eval(document.getElementById("29input4").value);
+                var input5 = eval(document.getElementById("29input5").value);
+                document.getElementById("29output").value = input1 + input2 + input3 + input4 + input5;
+            }
+            function f30(){
+                var input = eval(document.getElementById("30input").value);
+                var bar = "";
+                for(var i = 0; i < input; i++){
+                    bar += "*";         //bar = bar + "*"; 文字列の足し算は文字の連結 文字列には足し算しかない
+                }
+                document.getElementById("30output").value = bar;
+            }
+            function f31(){
+                var input = eval(document.getElementById("31input").value);
+                var bar = "";
+                for(var i = 1; i <= input; i++){
+                    bar += "*";   
+                    if(i%5 == 0) {
+                        bar += " ";
+                    }    
+                }
+                document.getElementById("31output").value = bar;
+            }
+            function f32(){
+                var data = "";
+                for (var i = 1; i <= 20; i++){
+                    if(i%5 == 0){
+                        data += "bar\r\n";
+                    }else{
+                        data += String(i)+"\r\n";
+                    }
+                }
+                document.getElementById('32output').value = data;
+            }
+            function f33(){
+                var input = eval(document.getElementById("33input").value);
+                var data = "";
+                for(var i = 1; i <= 9; i++){                  
+                       if(i == input){
+                        data += "";
+                    }else{
+                        data += String(i)+"\r\n";
+                    }
+                }
+                document.getElementById("33output").value = data;
+            }
+            function f34(){
+                var input = eval(document.getElementById("34input").value);
+                var data = "";
+                for(var i = 1; i <= 9; i++){                  
+                       if(i == input || i == input + 1){
+                        data += "";
+                       }else{
+                        data += String(i)+"\r\n";
+                    }
+                }
+                document.getElementById("34output").value = data;
+            }
+            function f35(){
+                var input = document.getElementById("35input").value;
+                var ar = Array(10);
+                ar = ["3","7","0","8","4","1","9","6","5","2"];
+                document.getElementById("35output").value = ar[input];
+            }
+            function f36(){         //できない
+                var input1 = eval(document.getElementById("36input1").value);
+                var input2 = eval(document.getElementById("36input2").value);
+                var ar = Array(10);           
+                ar = eval(["3","7","0","8","4","1","9","6","5","2"]);
+                var i1 = eval(ar[input1]);
+                var i2 = eval(ar[input2]);
+                var result;
+                result = i1 * i2;
+                document.getElementById("36output").value = String(result); //文字列化
+            }
+            function f37(){
+                var input = document.getElementById("37input").value;
+                var ar = Array(10);
+                ar = ["3","7","0","8","4","1","9","6","5","2"];
+                var output = ar[input];
+                document.getElementById("37output").value = ar[output];
+            }
+            function f38(){
+                var ar = Array(10);
+                ar = ["3","7","0","8","4","1","9","6","5","2"];
+                var index = 0;
+                var data = "";
+                for (var i = 0; i < 10; i++){
+                    index = eval(ar[index]);            //数値変換
+                    data += String(index) + "\r\n";     //文字変換
+                }
+                document.getElementById("38output").value = data;
+            }
+            function f39(){
+                var ar = Array(10);
+                ar = [3,7,0,8,4,1,9,6,5,2];
+                var result;
+                var data = "";
+                for(i = 0; i < 9; i++){
+                    result = ar[i] - ar[i + 1];
+                    data += String(result) + "\r\n";
+                }
+                document.getElementById("39output").value = data;
             }
         </script>
     </body>
