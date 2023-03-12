@@ -24,6 +24,34 @@
         <label>c</label><input type="text" id="43input3">
         <input type="button" value="判定" onclick="f43()">
         <input type="text" id="43output">
+        <h3>44 通貨換算</h3>
+        <input type="text" id="44input1"><label>円,  1$</label>
+        <input type="text" id="44input2"><label>円</label>
+        <input type="button" value="計算" onclick="f44()">
+        <input type="text" id="44output">
+        <h3>45 タクシー料金</h3>
+        <input type="text" id="45input">
+        <input type="button" value="計算" onclick="f45()">
+        <input type="text" id="45output">
+        <h3>46 入館料</h3>
+        <input type="text" id="46input">
+        <input type="button" value="計算" onclick="f46()">
+        <input type="text" id="46output">
+        <h3>47 入れ替え</h3>
+        <label>a</label><input type="text" id="47input1">
+       <label>b</label> <input type="text" id="47input2">
+        <input type="button" value="実行" onclick="f47()">
+        <input type="text" id="47output">
+        <h3>48 繰り返し計算</h3>
+        <input type="text" id="48input">
+        <input type="button" value="開始" onclick="f48()">
+        <textarea id="48output" cols = "15" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>49 九九</h3>
+        <input type="button" value="表示" onclick="f49()">
+        <textarea id="49output" cols = "50" rows = "10" style="white-space: pre-line"></textarea>
+        <h3>50 foobar</h3>
+        <input type="button" value="表示" onclick="f50()">
+        <textarea id="50output" cols = "20" rows = "15" style="white-space: pre-line"></textarea>
 
         <script>
             function f40(){
@@ -70,7 +98,100 @@
                 }else{
                     data = "重解";
                 }
+                
                 document.getElementById("43output").value = data;
+            }
+            function f44(){
+                var i1 = eval(document.getElementById("44input1").value);
+                var i2 = eval(document.getElementById("44input2").value);
+                var d = Math.floor(i1/i2);
+                var c = Math.floor(100 * ((i1/i2) - d));
+                document.getElementById("44output").value = d + "$ " + c + "¢";
+            }
+            function f45(){
+                var m = eval(document.getElementById("45input").value);
+                var f;
+                var d = m - 1700;
+                if(m <= 1700){
+                    f = 610;
+                }else if(m > 1700 && d%313 == 0){
+                    f = (d/313) * 80 + 610;
+                }else{
+                    f = (Math.floor(d/313))*80 + 690;
+                }
+                document.getElementById("45output").value = f + "円";
+            }
+            function f46(){
+                var p = eval(document.getElementById("46input").value);
+                var fee;
+                if(p < 5){
+                    fee = p * 600;
+                }else if(p < 20){
+                    fee = p * 550;
+                }else{
+                    fee = p * 500;
+                }
+                document.getElementById("46output").value = fee;
+            }
+            function f47(){
+                var a = document.getElementById("47input1").value;
+                var b = document.getElementById("47input2").value;
+                temp = a;
+                a = b;
+                b = temp;
+                document.getElementById("47output").value = "a = " + a + ",b = " + b;
+            }
+            function f48(){     //ループ
+                var num = eval(document.getElementById("48input").value);
+                var result = num;
+                var data = "";
+                for(i = num; result != 1;){
+                    if(result%2 == 0){
+                        result /= 2;
+                    }else{
+                        result = result * 3 + 1;
+                    }
+                    data += result + "\r\n";
+                }
+                document.getElementById("48output").value = data;
+            }
+            function f49(){
+                var data = "";
+                for(var i = 1; i <= 9; i++){
+                    for(var j = 1; j <= 9; j++){
+                        data += ('   ' + j * i).slice( -4 );
+                    }
+                    data += "\r\n";
+                }
+                document.getElementById("49output").value = data;
+            }
+            function f50(){
+                var data = document.getElementById("50output");     //dataにオブジェクトを入れた 
+                for(i = 1; i <= 100; i++){
+                    var flg = 0;
+                    if(i%3 == 0){       //条件判定　flgに値をセット 
+                        flg |= 1;       //1bitめ
+                    }
+                    if(i%5 == 0){
+                        flg |= 2;       //2bitめ        2^n
+                    }
+                    switch (flg){
+                        case 1:
+                            data.value += "foo";
+                            break;
+                        case 2:
+                            data.value += "bar";
+                            break;
+                        case 3:                 //bitの論理和 1と2の足し算
+                            data.value += "foobar";
+                            break;
+                        default:
+                            data.value += String(i);
+
+                    }
+                    data.value += "\r\n";
+                    
+                }
             }
         </script>
     </body>
