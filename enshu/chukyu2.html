@@ -52,6 +52,44 @@
         <h3>50 foobar</h3>
         <input type="button" value="表示" onclick="f50()">
         <textarea id="50output" cols = "20" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>51 お支払い</h3>
+        <input type="text" id="51input">
+        <input type="button" value="計算" onclick="f51()">
+        <input type="text" id="51output" style="width: 280px;">
+        <h3>52 閏年</h3>
+        <input type="text" id="52input">
+        <input type="button" value="判定" onclick="f52()">
+        <input type="text" id="52output">
+        <h3>53 素因数分解</h3>
+        <input type="text" id="53input">
+        <input type="button" value="表示" onclick="f53()">
+        <textarea id="53output" cols = "15" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>54 データ</h3>
+        <input type="button" value="実行" onclick="f54()">
+        <label>最小</label><input type="text" id="54output1">
+        <label>最大</label><input type="text" id="54output2">
+        <h3>55 夢想花again</h3>
+        <input type="button" value="表示" onclick="f55()">
+        <textarea id="55output" cols = "70" rows = "10" style="white-space: pre-line"></textarea>
+        <h3>56 二進数</h3>
+        <input type="text" id="56input">
+        <input type="button" value="実行" onclick="f56()">
+        <textarea id="56output" cols = "30" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>57 テスト集計</h3>
+        <input type="button" value="実行" onclick="f57()">
+        <textarea id="57output" cols = "45" rows = "10" style="white-space: pre-line"></textarea>
+        <h3>58 棒グラフ</h3>
+        <input type="text" id="58input1">
+        <input type="text" id="58input2">
+        <input type="text" id="58input3">
+        <input type="text" id="58input4">
+        <input type="text" id="58input5">
+        <input type="button" value="表示" onclick="f58()">
+        <textarea id="58output" cols = "45" rows = "15" style="white-space: pre-line"></textarea>
+        <h3>59 行列</h3>
+        <input type="button" value="実行" onclick="f59()">
+        <textarea id="59output" cols = "30" rows = "10" style="white-space: pre-line"></textarea>
+
 
         <script>
             function f40(){
@@ -193,6 +231,153 @@
                     
                 }
             }
+            function f51(){     //()の位置ミス 10円
+                var i = eval(document.getElementById("51input").value);
+                var h = Math.floor(i/100);
+                var t = Math.floor((i - h*100)/10);     //inputから100円玉の枚数を引いて、1円は切り捨て
+                var o = i - h*100 - t*10;
+                document.getElementById("51output").value = "100円玉" + h + "枚、10円玉" + t +"枚、1円玉" + o + "枚";
+            }
+            function f52(){     //100は4で割り切れる
+                var input = eval(document.getElementById("52input").value);
+                var data = "閏年ではない";
+                if (input%4 == 0){      //4で割り切れる世界↓
+                    if(input%100 != 0 || input%400 == 0){
+                        data = "閏年である";
+                    }
+                }
+                document.getElementById("52output").value = data;
+            }
+            function f53(){
+                var input = eval(document.getElementById("53input").value);
+                var data = "";
+               /* for(var i = 2; i <= input;){
+                    if(input%i == 0){
+                        input = input/i;
+                        data += i + ' ';
+                        continue;       //更新式までジャンプ　ラベル付き
+                    }
+                    i++;
+                }*/
+               /* var i = 2;
+                while(i <= input){
+                    if(input%i == 0){
+                        input = input/i;
+                        data += i + ' ';
+                        continue;       
+                    }
+                    i++;
+                }*/
+                var i = 2;
+                while(true){        //whileの中はtrue 無限ループ
+                    if(input%i == 0){
+                        input = input/i;
+                        data += i + ' ';
+                        continue;       //whileの先頭にもどる
+                    }
+                    i++;
+                    if(i > input){      //break 条件
+                        break;
+                    }
+                }
+                document.getElementById("53output").value = data;
+            }
+            function f54(){
+                var m = [50,110,176,879,499,362,843,226,484,506,20,122,435,959,970,558,28,154,893,197,130,596,30,949,957,622,967,439,224,61,152,988,868,291,559,349,219,955,931,169,592,981,514,226,482,511,277,543,902,129,344];
+                var min = m[1];
+                var max = m[1];
+                for(var i = 0; i < m[0]; i++){
+                    var index = i + 1;
+                    if(min > m[index]){
+                        min = m[index];
+                    }
+                    if(max < m[index]){
+                        max = m[index];
+                    }
+                }
+                document.getElementById("54output1").value = min;
+                document.getElementById("54output2").value = max;
+            }
+            function f55(){
+                var data = "";
+                for(i = 0; i < 3; i++){
+                    for(j = 0; j < 9; j++){
+                        data += "とんで";
+                    }
+                    for(k = 0; k < 3; k++){
+                        data += "まわって";
+                    }
+                    data += "まわる\r\n";
+                }
+                document.getElementById("55output").value = data;
+            }
+            function f56(){
+                var num = eval(document.getElementById("56input").value);
+                var ar = Array(16);
+                for(var i = 0; i < 16; i++){
+                    ar [i] = num%2;
+                    num = Math.floor(num/2);
+                }
+                var data = "";
+                for(var i = 15; i >= 0; i--){
+                    data += ar[i];
+                }
+                document.getElementById("56output").value = data;
+            }
+            function f57(){
+                var t = [[50],[62,42,32],[45,3,16],[21,61,62],[22,78,1],[57,67,36],[91,85,85],[99,14,84],[3,100,61],[63,43,37],[28,9,79],[16,53,85],[80,43,62],[63,80,78],[75,3,64],[42,47,65],[96,64,19],[98,79,37],[38,7,96],[97,38,4],[46,32,2],[42,32,99],[7,92,92],[2,81,97],[38,24,82],[72,19,20],[99,95,19],[99,49,71],[6,79,3],[98,66,16],[40,69,84],[43,68,18],[91,10,97],[74,35,67],[59,57,91],[51,14,37],[60,16,33],[78,56,77],[13,89,67],[50,80,85],[68,73,90],[45,58,78],[71,60,26],[57,53,5],[1,82,23],[67,74,95],[8,90,16],[58,52,71],[65,58,9],[97,91,77],[56,24,87],];
+                var sE = 0;
+                var sM = 0;
+                var sJ = 0;
+                for(var i = 0;i < t[0][0]; i++){
+                    sE += t[i + 1][0];
+                    sM += t[i + 1][1];
+                    sJ += t[i + 1][2];
+                }
+                document.getElementById("57output").value += "平均点英語:" + sE/t[0][0] + "数学:" + sM/t[0][0] + "国語:" + sJ/t[0][0] + "\r\n";
+                for(var i = 0; i < t[0][0]; i++){
+                    document.getElementById("57output").value += i + ":\t" + (t[i + 1][0] + t[i + 1][1] + t[i + 1][2]) + "\r\n";
+                }
+            }
+            function f58(){
+                var ar = Array(5);
+                ar[0] = eval(document.getElementById("58input1").value);
+                ar[1] = eval(document.getElementById("58input2").value);
+                ar[2] = eval(document.getElementById("58input3").value);
+                ar[3] = eval(document.getElementById("58input4").value);
+                ar[4] = eval(document.getElementById("58input5").value);
+                var data = "";
+                for(var i = 0; i < 5; i++){
+                    data += ar[i] + "\t:";
+                    for(var j = 1; j <= ar[i]; j++){
+                        data += "*";
+                        if(j%5 == 0){
+                            data += " ";
+                        }
+                    }
+                    data += "\r\n";
+                }
+                document.getElementById("58output").value = data;
+            }
+            function f59(){
+                var a = [];
+                a[0] = [1,2,3];
+                a[1] = [4,5,6];
+                a[2] = [7,8,9];
+                var b = [];
+                b[0] = [2,3,4];
+                b[1] = [5,6,7];
+                b[2] = [8,9,1];
+                var data = "";
+                for(var i = 0; i < 3; i++){
+                    for(var j = 0; j < 3; j++){
+                        data += a[i][j] + b[i][j] + "\t";
+                    }
+                    data += "\r\n";
+                }
+                document.getElementById("59output").value = data;
+            }
+
         </script>
     </body>
 </html>
