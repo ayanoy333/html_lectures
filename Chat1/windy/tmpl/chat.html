@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+<meta http-equiv="content-style-type" content="text/css">
+<style type="text/css">
+<!--
+body,td,th { font-size:80%; background:#ebebf5; }
+a { text-decoration:none; }
+-->
+</style>
+<script language="javascript">
+<!--
+	function textfocus() {
+	document.windy.comment.focus();
+	return true;
+}
+//-->
+</script>
+<title>!chat_title!</title>
+</head>
+<body onLoad="return textfocus()">
+<form name="windy" method="post" action="!chat_cgi!">
+<input type="hidden" name="mode" value="regist">
+<input type="hidden" name="name" value="!name!">
+<input type="hidden" name="email" value="!email!">
+<input type="text" name="comment" size="60">
+<input type="submit" value="????/?????[?h"><input type="reset" value="?N???A"><br>
+?????F
+<select name="color">
+<!-- op_colors -->
+</select>
+&nbsp;&nbsp;
+<input type="button" value="???????" onclick=window.open("!chat_cgi!?mode=out&name=!enam!","_self")>
+</form>
+
+?Q????(!num!)?F !member!<br>
+
+<!-- loop_begin -->
+<hr>
+!log:name! &gt; !log:com! (!log:date!)
+<!-- loop_end -->
+
+<hr>
+</body>
+</html>
