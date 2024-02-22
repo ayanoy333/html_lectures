@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Text and Image Editor</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      .editor {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .editor textarea,
+      .editor img {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .editor button {
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .editor button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="editor">
+      <h2>Advanced Text and Image Editor</h2>
+
+      <label for="text">Text:</label>
+      <textarea id="text" rows="4"></textarea>
+
+      
+
+      <img id="preview" src="" alt="Image Preview" style="display: none" />
+
+      <label for="bold">Bold:</label>
+      <input type="checkbox" id="bold" />
+
+      <label for="italic">Italic:</label>
+      <input type="checkbox" id="italic" />
+
+      <label for="color">Text Color:</label>
+      <input type="color" id="color" value="#000000" /><br>
+
+      <label for="image">Image URL:</label>
+      <input type="text" id="image" placeholder="Enter image URL" /><br>
+
+      <button onclick="updateContent()">Update Content</button>
+    </div>
+
+    <script>
+      function updateContent() {
+        var textValue = document.getElementById("text").value;
+        var imageUrl = document.getElementById("image").value;
+        var isBold = document.getElementById("bold").checked;
+        var isItalic = document.getElementById("italic").checked;
+        var textColor = document.getElementById("color").value;
+
+        var preview = document.getElementById("preview");
+
+        // Update text content with styles
+        preview.innerHTML = textValue;
+        preview.style.fontWeight = isBold ? "bold" : "normal";
+        preview.style.fontStyle = isItalic ? "italic" : "normal";
+        preview.style.color = textColor;
+
+        // Update image source and display
+        preview.src = imageUrl;
+        preview.style.display = imageUrl ? "block" : "none";
+      }
+    </script>
+  </body>
+</html>

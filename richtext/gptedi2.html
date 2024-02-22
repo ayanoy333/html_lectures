@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Styling Editor</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      .editor {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .editor textarea,
+      .editor img {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .editor button {
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .editor button:hover {
+        background-color: #45a049;
+      }
+
+      .preview {
+        font-weight: normal;
+        font-style: normal;
+        color: #000000;
+      }
+
+      .preview.bold {
+        font-weight: bold;
+      }
+
+      .preview.italic {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="editor">
+      <h2>Text Styling Editor</h2>
+
+      <label for="text">Text:</label>
+      <textarea id="text" rows="4" oninput="updatePreview()"></textarea>
+
+      <img id="preview" src="" alt="Image Preview" style="display: none" />
+
+      <label for="bold">Bold:</label>
+      <input type="checkbox" id="bold" onchange="updatePreview()" />
+
+      <label for="italic">Italic:</label>
+      <input type="checkbox" id="italic" onchange="updatePreview()" />
+
+      <label for="color">Text Color:</label>
+      <input
+        type="color"
+        id="color"
+        value="#000000"
+        onchange="updatePreview()"
+      /><br />
+
+      <label for="image">Image URL:</label>
+      <input type="text" id="image" placeholder="Enter image URL" /><br />
+
+      <button onclick="updateContent()">Update Content</button>
+
+      <div class="preview" id="previewContent"></div>
+    </div>
+
+    <script>
+      function updatePreview() {
+        var textValue = document.getElementById("text").value;
+        var isBold = document.getElementById("bold").checked;
+        var isItalic = document.getElementById("italic").checked;
+        var textColor = document.getElementById("color").value;
+
+        var preview = document.getElementById("previewContent");
+
+        // Update text content with styles
+        preview.innerHTML = textValue;
+        preview.style.color = textColor;
+
+        // Apply styles
+        if (isBold) {
+          preview.classList.add("bold");
+        } else {
+          preview.classList.remove("bold");
+        }
+
+        if (isItalic) {
+          preview.classList.add("italic");
+        } else {
+          preview.classList.remove("italic");
+        }
+      }
+
+      function updateContent() {
+        // Implement the content update logic if needed
+      }
+    </script>
+  </body>
+</html>
