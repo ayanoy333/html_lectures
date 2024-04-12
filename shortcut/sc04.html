@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--混在している場合全て太字-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Formatting with HTML</title>
+  </head>
+  <body>
+    <div id="textContainer" contenteditable="true">
+      <p>
+        This is some <span style="font-weight: bold">bold</span>
+        <span>text</span>.
+      </p>
+    </div>
+
+    <button onclick="toggleBold()">Toggle Bold</button>
+
+    <script>
+      function toggleBold() {
+        var selection = window.getSelection();
+        var range = selection.getRangeAt(0);
+        var startNode = range.startContainer;
+        var endNode = range.endContainer;
+
+        // 選択範囲の先頭のテキストノードを取得
+        while (startNode.nodeType === Node.TEXT_NODE) {
+          startNode = startNode.parentNode;
+        }
+
+        // 選択範囲の末尾のテキストノードを取得
+        while (endNode.nodeType === Node.TEXT_NODE) {
+          endNode = endNode.parentNode;
+        }
+
+        // 選択範囲内に太字とそうでないテキストが混在しているかを確認
+        var isMixed = false;
+        var nodes = document.createNodeIterator(
+          startNode,
+          NodeFilter.SHOW_ELEMENT,
+          function (node) {
+            if (
+              node.tagName !== "SPAN" &&
+              node.tagName !== "STRONG" &&
+              node.tagName !== "B"
+            ) {
+              return NodeFilter.FILTER_ACCEPT;
+            }
+          }
+        );
+        while (nodes.nextNode()) {
+          if (
+            window.getComputedStyle(nodes.referenceNode).fontWeight === "bold"
+          ) {
+            isMixed = true;
+            break;
+          }
+        }
+
+        // 選択範囲内に太字とそうでないテキストが混在している場合は、先頭の文字を基準に太字を修飾または解除する
+        if (isMixed) {
+          // 先頭のテキストノードの親要素が太字であれば太字を解除し、そうでなければ太字にする
+          var isBold =
+            startNode.style.fontWeight === "bold" ||
+            window.getComputedStyle(startNode).fontWeight === "bold";
+          if (isBold) {
+            document.execCommand("bold");
+          } else {
+            var span = document.createElement("span");
+            span.style.fontWeight = "bold";
+            range.surroundContents(span);
+          }
+        } else {
+          // 選択範囲内に太字とそうでないテキストが混在していない場合は、すべてのテキストを太字にする
+          document.execCommand("bold");
+        }
+      }
+    </script>
+  </body>
+</html>

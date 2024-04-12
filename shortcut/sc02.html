@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Formatting with HTML</title>
+  </head>
+  <body>
+    <div id="textContainer">
+      <p>
+        This is <span id="editableText" style="color: blue">some</span> text.
+      </p>
+    </div>
+
+    <button onclick="toggleBold()">Toggle Bold</button>
+
+    <script>
+      function toggleBold() {
+        var editableText = document.getElementById("editableText");
+        var isBold =
+          editableText.style.fontWeight === "bold" ||
+          window
+            .getComputedStyle(editableText)
+            .getPropertyValue("font-weight") === "bold";
+        if (!isBold) {
+          editableText.style.fontWeight = "bold";
+        } else {
+          editableText.style.fontWeight = "normal";
+        }
+      }
+    </script>
+  </body>
+</html>

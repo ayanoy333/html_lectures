@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--太字細字が混在してると動かない-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Formatting with HTML</title>
+  </head>
+  <body>
+    <div id="textContainer" contenteditable="true">
+      <p>
+        This is <span style="color: blue">some</span> bold
+        <span style="font-weight: bold">text</span>.
+      </p>
+    </div>
+
+    <button onclick="toggleBold()">Toggle Bold</button>
+
+    <script>
+      function toggleBold() {
+        var selection = window.getSelection();
+        var range = selection.getRangeAt(0);
+        var span = document.createElement("span");
+
+        // 選択範囲が既に太字であるかどうかを確認
+        var isBold =
+          range.commonAncestorContainer.parentElement.style.fontWeight ===
+            "bold" ||
+          window.getComputedStyle(range.commonAncestorContainer.parentElement)
+            .fontWeight === "bold";
+
+        if (isBold) {
+          // 既に太字である場合は太字を解除する
+          document.execCommand("bold");
+        } else {
+          // 太字でない場合は選択範囲を太字にする
+          span.style.fontWeight = "bold";
+          range.surroundContents(span);
+        }
+      }
+    </script>
+  </body>
+</html>

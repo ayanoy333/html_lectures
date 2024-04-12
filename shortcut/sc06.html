@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Formatting with HTML</title>
+  </head>
+  <body>
+    <div id="textContainer" contenteditable="true">
+      <p>
+        This is some
+        <span style="font-weight: bold">bold</span> <span>text</span>.
+      </p>
+    </div>
+
+    <button onclick="toggleBold()">Toggle Bold</button>
+
+    <script>
+      function toggleBold() {
+        var selection = window.getSelection();
+        var range = selection.getRangeAt(0);
+
+        // 選択範囲内のテキストのみを太字にする
+        if (range && !selection.isCollapsed) {
+          var selectedText = range.extractContents();
+          var span = document.createElement("span");
+          span.appendChild(selectedText);
+
+          // 太字のスタイルが適用されている場合は解除し、そうでない場合は太字にする
+          if (
+            range.commonAncestorContainer.parentNode.style.fontWeight === "bold"
+          ) {
+            range.commonAncestorContainer.parentNode.style.fontWeight =
+              "normal";
+          } else {
+            span.style.fontWeight = "bold";
+          }
+
+          range.insertNode(span);
+        }
+      }
+    </script>
+  </body>
+</html>

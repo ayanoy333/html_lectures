@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Editing with Shortcuts</title>
+  </head>
+  <body>
+    <div id="textContainer" contenteditable="true">
+      Click here and press Ctrl + E to edit this text.
+    </div>
+
+    <script>
+      document.addEventListener("keydown", function (event) {
+        if (event.ctrlKey && event.key === "e") {
+          // Ctrl + E が押された場合、編集可能にする
+          enableEditing();
+        } else if (event.key === "Enter") {
+          // Enter キーが押された場合、編集モードを終了する
+          disableEditing();
+        }
+      });
+
+      function enableEditing() {
+        var textContainer = document.getElementById("textContainer");
+        textContainer.focus();
+        textContainer.setAttribute("contenteditable", "true");
+      }
+
+      function disableEditing() {
+        var textContainer = document.getElementById("textContainer");
+        textContainer.blur();
+        textContainer.removeAttribute("contenteditable");
+      }
+    </script>
+  </body>
+</html>
